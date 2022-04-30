@@ -6,7 +6,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt">
         <Head>
-          <link rel="icon" href="images/favicon.png" type="image/favicon.png" />
+          <link rel="icon" href="/favicon.png" type="image/png" />
           <link rel='stylesheet' href='/assets/css/reset.css' />
         </Head>
         <body>
