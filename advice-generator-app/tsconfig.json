@@ -23,9 +23,11 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./src/components/*"],
-      "@data_types/*": ["src/data_types/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@assets/*": ["./src/assets/*"],
       "@helpers/*": ["./src/helpers/*"],
-      "@mock_data/*": ["./src/mock_data/*"]
+      // "@data_types/*": ["src/data_types/*"],
+      // "@mock_data/*": ["./src/mock_data/*"]
     },
     "isolatedModules": true
   },

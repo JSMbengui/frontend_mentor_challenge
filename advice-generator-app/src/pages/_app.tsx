@@ -1,25 +1,24 @@
+import { GlobalStyle, theme } from '@assets/theme'
+
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { FC } from 'react'
 
-const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
+import { ThemeProvider } from 'styled-components'
 
+const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <title>Advice Generator</title>
-
-        <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-        <meta name="author" content="Joel Mbengui" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
       </Head>
-      <Component {...pageProps} />
+
+      <GlobalStyle />
+      <ThemeProvider theme={theme} >
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
 }
 
-export default MyApp
+export default App
