@@ -1,5 +1,5 @@
 export type AdviceType = {
-  id: string
+  id: number
   title: string
 }
 

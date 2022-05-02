@@ -9,7 +9,7 @@ describe('Advice Component', () => {
   it('Should render the advice', () => {
     const fn = jest.fn()
     const adviceMock: AdviceType = {
-      id: "advice1",
+      id: 1,
       title: 'my advice'
     }
 
@@ -22,7 +22,7 @@ describe('Advice Component', () => {
       </ThemeProvider>
     )
 
+    expect(screen.getByText(/ADVICE # 1/)).toBeInTheDocument()
     expect(screen.getByText(`"${adviceMock.title}"`)).toBeInTheDocument()
-    expect(screen.getByText(/ADVICE # advice1/)).toBeInTheDocument()
   })
 })

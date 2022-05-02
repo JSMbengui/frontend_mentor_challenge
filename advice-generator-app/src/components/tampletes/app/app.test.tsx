@@ -15,7 +15,7 @@ describe('App Component', () => {
   it('Should render the app component', () => {
     render(
       <ThemeProvider theme={theme}>
-        <App advice={{ id: "1", title: 'Any advice' }} />
+        <App advice={{ id: 1, title: 'Any advice' }} />
       </ThemeProvider>
     )
 
@@ -25,27 +25,29 @@ describe('App Component', () => {
   it('Should render new advice when request another advice successed', async () => {
     render(
       <ThemeProvider theme={theme}>
-        <App advice={{ id: "1", title: 'Any advice' }} />
+        <App advice={{ id: 1, title: 'Any advice' }} />
       </ThemeProvider>
     )
 
     mockedAxios.get.mockResolvedValue({
       data: {
-        id: "1",
-        title: "New advice"
+        slip: {
+          id: 1,
+          title: "New advice"
+        }
       }
     })
 
     await userEvent.click(screen.getByTestId('next_advice'))
 
     expect(await screen.findByText(/ADVICE # 1/)).toBeInTheDocument()
-    expect(await screen.findByText(/New advice/)).toBeInTheDocument()
+    expect(await screen.findByText(/"New advice"/)).toBeInTheDocument()
 
   })
-  it('Should maitain the current advice whem request new another advice fails', async () => {
+  it('Should keep the current advice whem request new another advice fails', async () => {
     render(
       <ThemeProvider theme={theme}>
-        <App advice={{ id: "1", title: 'Any advice' }} />
+        <App advice={{ id: 1, title: 'Any advice' }} />
       </ThemeProvider>
     )
     
@@ -54,7 +56,7 @@ describe('App Component', () => {
     await userEvent.click(screen.getByTestId('next_advice'))
 
     expect(await screen.findByText(/ADVICE # 1/)).toBeInTheDocument()
-    expect(await screen.findByText(/Any advice/)).toBeInTheDocument()
+    expect(await screen.findByText(/"Any advice"/)).toBeInTheDocument()
 
   })
 

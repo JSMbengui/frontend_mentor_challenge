@@ -9,12 +9,11 @@ describe('CardHeader Component', () => {
     render(
       <ThemeProvider theme={theme}>
         <CardHeader
-          adviceId="card_id_1"
+          adviceId={1}
         />
       </ThemeProvider>
-
     )
 
-    expect(screen.getByText(/ADVICE # card_id_1/)).toBeInTheDocument()
+    expect(screen.getByText(/ADVICE # 1/)).toBeInTheDocument()
   })
 })

@@ -1,3 +1,3 @@
 export type CardHeaderProps = {
-  adviceId: string
+  adviceId: number
 }

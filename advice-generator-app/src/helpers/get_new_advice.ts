@@ -4,9 +4,12 @@ import axios from "axios";
 
 export async function getNewAdvice(): Promise<AdviceType> {
   try {
-    const response = await axios.get<AdviceType>(BASE_API_URL)
+    type AdviceResponse = {
+      slip: AdviceType
+    }
+    const response = await axios.get<AdviceResponse>(BASE_API_URL)
 
-    return response.data
+    return response.data.slip
   } catch (error) {
     throw new Error('Something wrong!')
   }
