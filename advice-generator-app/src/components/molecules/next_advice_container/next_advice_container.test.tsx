@@ -1,17 +1,26 @@
+import { theme } from "@assets/theme"
+
 import { render, screen } from "@testing-library/react"
+import userEvent from '@testing-library/user-event'
+
+import { ThemeProvider } from "styled-components"
 
 import NextAdviceContainer from "."
 
 describe('NextAdviceContainer Component', () => {
-  it('Should render the NextAdvice', () => {
+  it('Should render the NextAdvice', async () => {
     const getNextAdvice = jest.fn()
 
     render(
-      <NextAdviceContainer
-        getNextAdvice={getNextAdvice}
-      />
+      <ThemeProvider theme={theme}>
+        <NextAdviceContainer
+          getNextAdvice={getNextAdvice}
+        />
+      </ThemeProvider>
     )
 
-    // test if call getNextAdvice
+    await userEvent.click(screen.getByTestId('next_advice'))
+
+    expect(getNextAdvice).toHaveBeenCalledTimes(1)
   })
 })

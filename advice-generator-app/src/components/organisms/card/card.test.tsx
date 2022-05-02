@@ -1,5 +1,7 @@
+import { theme } from "@assets/theme"
 import { AdviceType } from "@components/tampletes/app/types"
 import { render, screen } from "@testing-library/react"
+import { ThemeProvider } from "styled-components"
 
 import Advice from "."
 
@@ -12,13 +14,15 @@ describe('Advice Component', () => {
     }
 
     render(
-      <Advice
-        advice={adviceMock}
-        getNextAdvice={fn}
-      />
+      <ThemeProvider theme={theme}>
+        <Advice
+          advice={adviceMock}
+          getNextAdvice={fn}
+        />
+      </ThemeProvider>
     )
 
-    expect(screen.getByText(adviceMock.title)).toBeInTheDocument()
+    expect(screen.getByText(`"${adviceMock.title}"`)).toBeInTheDocument()
     expect(screen.getByText(/ADVICE # advice1/)).toBeInTheDocument()
   })
 })

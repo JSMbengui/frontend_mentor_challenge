@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 
 import Divider from "."
 
@@ -8,6 +8,6 @@ describe('Divider Component', () => {
       <Divider />
     )
 
-    // test if my image are in the document
+    // screen.debug()
   })
 })

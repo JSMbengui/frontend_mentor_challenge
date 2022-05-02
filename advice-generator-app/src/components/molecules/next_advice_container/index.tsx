@@ -8,6 +8,7 @@ const NextAdviceContainer: FC<NextAdviceContainerProps> = ({
   return (
     <Container>
       <div
+        data-testid="next_advice"
         onClick={() => getNextAdvice()}
       />
     </Container>
